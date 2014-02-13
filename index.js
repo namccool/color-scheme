@@ -10,6 +10,7 @@ if (Meteor.isClient) {
   Template.hello.events({
     'change input.color-picker': function(event) {
       var value = event.srcElement.value;
+      // TODO allow for passing method to `color`
       var color = Color(value);
       Session.set('color', value);
     }
