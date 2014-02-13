@@ -1,13 +1,17 @@
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
-    return "Welcome to color-scheme.";
+    return "Something is happening";
+  };
+
+  Template.hello.color = function() {
+    return Session.get('color') || 'white';
   };
 
   Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
+    'change input.color-picker': function(event) {
+      var value = event.srcElement.value;
+      var color = Color(value);
+      Session.set('color', value);
     }
   });
 }
