@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
-    return "Something is happening";
+    return "Something is happening.";
   };
 
   Template.hello.color = function() {
